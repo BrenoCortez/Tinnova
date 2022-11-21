@@ -1,0 +1,43 @@
+
+<mat-grid-list cols="1" class="responsive-grid" [ngClass]="data.update ? '' : 'padding'">
+  <mat-card class="form">
+    <form id="formRegister" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome Completo (Sem abreviações)</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="!form.value.nome || form.value.nome.length <= 3">Campo deve conter 3 caracteres ou mais</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="!form.value.email || !form.value.email.includes('/@/g')">Campo deve conter um endereço válido</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input pattern="[0-9]*" matInput formControlName="cpf"  mask="000.000.000-00">
+        <mat-error *ngIf="!form.value.cpf || form.value.cpf.length != 11">Campo deve conter 11 dígitos</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input pattern="[0-9]*" matInput formControlName="telefone" mask="(00) 00000-0000">
+        <mat-error *ngIf="!form.value.length || form.value.cpf.length != 11">Campo deve conter 11 dígitos</mat-error>
+      </mat-form-field>
+    </form>
+    <mat-card-footer>
+      <button *ngIf="!data.update; else showUpdateBtn" [disabled]="!form.valid" form="formRegister" type="submit" mat-button class="btn-custom">
+        <span *ngIf="!loading; else showLoader">Cadastrar</span>
+        <ng-template #showLoader>
+          <div class="loader"></div>
+        </ng-template>
+      </button>
+      <ng-template #showUpdateBtn>
+        <button [disabled]="!form.valid" form="formRegister" type="submit" mat-button class="btn-custom">
+          <span *ngIf="!loading; else showLoader">Atualizar</span>
+          <ng-template #showLoader>
+            <div class="loader"></div>
+          </ng-template>
+        </button>
+      </ng-template>
+    </mat-card-footer>
+  </mat-card>
+</mat-grid-list>

@@ -1,0 +1,15 @@
+<div class="modal">
+  <div class="icon">
+    <mat-icon>warning</mat-icon>
+  </div>
+  <h3>Tem certeza que deseja deletar o usuário abaixo?</h3>
+  <p>{{ data.nome }}</p>
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <button mat-button (click)="onYes()">Sim</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-button (click)="onNo()">Não</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,15 @@
+.responsive-grid {
+  display: flex;
+  flex-wrap: wrap;
+  top: 10%;
+  justify-content: center;
+
+  .card-btn {
+    align-items: center;
+    padding: 16px;
+
+    mat-card-header {
+      margin-bottom: 8px;
+    }
+  }
+}

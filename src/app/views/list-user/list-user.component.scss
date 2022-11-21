@@ -1,0 +1,31 @@
+.responsive-grid {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  overflow-x: auto;
+  padding: 16px;
+  overflow-x: auto;
+  justify-content: center;
+
+  mat-table {
+    min-width: 1000px;
+
+    mat-cell, mat-header-cell {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .action-btn:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.no-user {
+  display: flex;
+  justify-content: center;
+
+  mat-card {
+    text-align: center;
+    padding: 16px;
+    width: 375px;
+  }
+}

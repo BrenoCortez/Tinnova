@@ -1,0 +1,22 @@
+.modal {
+  padding: 16px;
+  text-align: center;
+  .icon {
+    padding-top: 16px;
+    mat-icon {
+      transform: scale(2);
+      color: 	#ffcc00;
+      justify-content: baseline;
+    }
+  }
+
+  button {
+    background-color: #00c8b3;
+    color: #ffffff !important;
+    font-size: 1rem;
+    border-radius: 32px;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 8px;
+  }
+}

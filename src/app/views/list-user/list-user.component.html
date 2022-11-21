@@ -1,0 +1,44 @@
+<div class="no-user" *ngIf="!userList || userList.length < 1; else showTable">
+  <mat-card>
+    Nenhum usuário cadastrado
+  </mat-card>
+</div>
+<ng-template #showTable>
+  <div class="responsive-grid">
+    <mat-table class="mat-elevation-z8" [dataSource]="userList" class="mat-elevation-z8" #table>
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.cpf | mask:'000.000.000-00' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.telefone | mask:'(00) 00000-0000' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="editar">
+        <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+        <mat-cell *matCellDef="let element;  let i = index;"><mat-icon (click)="editLine(i)" class="action-btn" >edit</mat-icon></mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="deletar">
+        <mat-header-cell *matHeaderCellDef> Deletar </mat-header-cell>
+        <mat-cell *matCellDef="let element;  let i = index;"><mat-icon  (click)="deleteLine(i)" class="action-btn">delete</mat-icon></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</ng-template>
+
