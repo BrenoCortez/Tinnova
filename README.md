@@ -1,4 +1,8 @@
-# Projeto Tinnova
+<h1 align="center">Projeto Tinnova</h1>
+
+## Descrição do Projeto
+
+Projeto simples para demonstração do fucionamento CRUD básico em angular, utilizando o localStorage para persistir os dados. 
 
 ## Versões de Biblioteca
 
